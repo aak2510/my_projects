@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web portfolio | Deliverable 3</title>
+    <!-- CSS style sheet -->
+    <link rel="stylesheet" href="../styling/style.css">
+    <!-- Free Icons and Logos -->
+    <script src="https://kit.fontawesome.com/60f7c70ff1.js" crossorigin="anonymous"></script>
+    <!-- jQuery library integration  -->
+    <Script src="https://code.jquery.com/jquery-3.6.3.min.js"></Script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Used Navbar, to allow for more specific addressing of elements with this doc in addition to the fact it will remain on the page at all times -->
+    <!-- The entire navbar -->
+    <nav class="navbar">
+        <!-- We want to make sure the logo, on the left, and the bar, on the right, takes up the entire width of the page on the same line. Hence the reason for this div = flex container -->
+        <!-- Additionally, we want to make sure that all sections following this page are within the same width as this -->
+        <div class="page-width">
+            <!-- Clickling logo will refer to home page -->
+            <div class="logo"><a href="#homepage" aria-label="Click here to go to the home page">ANISH</a></div>
+
+            <ul class="nav-options">
+                <li><a href="#homepage" class="hover-underline-animation"
+                        aria-label="homepage navigation bar link">Home</a></li>
+                <li><a href="#aboutPage" class="hover-underline-animation"
+                        aria-label="about me page navigation bar link">About</a></li>
+                <li><a href="#skillsPage" class="hover-underline-animation"
+                        aria-label="skills page navigation bar link">Skills</a></li>
+                <li><a href="#portfolioPage" class="hover-underline-animation"
+                        aria-label="projects and portfolio page navigation bar link">Portfolio</a></li>
+                <li><a href="#contactPage" class="hover-underline-animation"
+                        aria-label="contact page navigation bar link">Contact</a></li>
+            </ul>
+
+            <div class="hamburger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Different sections on the webpage-portfolio -->
+
+    <!-- Home/Landing page -->
+    <section class="landing-page" id="homepage">
+        <!-- Video background -->
+        <!-- Put outside the page-width as we want it to cover the entire landing page -->
+        <video src="../resources/Pexels_Videos_4703.mp4" class="background-video" muted loop autoplay
+            style="pointer-events: none;">Your browser does not support this video
+        </video>
+
+        <!-- Main text -->
+        <!-- Making sure its the within the margin of the page -->
+        <div class="page-width">
+            <div class="text-content-center">
+                <!-- This is going to be a small line -->
+                <h3 class="text-margin-landing" id="first-line">Hello,</h3>
+                <!-- Make this line larger - <span> tag is used to make the last word a differnt colour-->
+                <h1 class="text-margin-landing" id="second-line">Welcome to my <span>portfolio...</span></h1>
+                <!-- 25px ish. Also had 25px of margin between each to prevent any overlapping -->
+                <p class="text-margin-landing" id="last-line">Press the unmute button in the bottom left corner to
+                    enjoy some music over the milky way.</p>
+            </div>
+        </div>
+
+
+        <!-- Footer of landing page -->
+        <div class="bottom-of-landing-container">
+            <div class="page-width">
+
+                <div class="music-button flashing" id="music-button">
+                    <i class="fa-solid fa-volume-xmark" id="speaker-logo"></i>
+                </div>
+
+                <div class="mouse-container">
+                    <div class="scroll-text">
+                        <p>Scroll / Click!</p>
+                    </div>
+                    <div class="scroll-downs flashing"><a href="#aboutPage" aria-label="Click here to scroll down to the about me page">
+                            <div class="mousey">
+                                <div class="scroller"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About me page -->
+    <section class="aboutPage" id="aboutPage">
+        <div class="page-width">
+
+            <div class="top-text">
+                <h1 class="background-text">About Me</h1>
+                <h1 class="page-heading">About <span class="heading-span">Me</span></h1>
+            </div>
+
+            <div class="container">
+
+                <div class="image left-side">
+                    <img src="../resources/images/185edcbb-0b63-4979-a621-aa3bf56f9824.jpg"
+                        alt="Image of Anish on about me page">
+                </div>
+
+
+
+
+
+                <div class="right-side justify-text">
+
+                    <h2 class="h2-div">My name is <span class="h2-div-span">Anish</span></h2>
+
+                    <p>
+
+                        Im an aspiring fullstack engineer, who lives in london and is currently pursuing a degree in
+                        computer science (BSc) at Royal Holloway, University of London.
+                        <br><br>
+                        Outside of the world of tech, I like to spend time with my friends travelling around the world,
+                        learning about new cultures, trying new cuisines meeting new people.
+                        <br><br>
+                        I'm an avid supporter of Arsenal FC and try to watch them down at the Emirates whenever the
+                        opportunity arises.
+
+                    </p>
+
+                    <div class="download-cv-button button-active-translate">
+                        <a href="../resources/download_test.pdf" download="AnishKandaCV">
+                            <button class="button-default-style button-transparent-and-scale-hover"
+                                aria-label="Download a CV in PDF format">Download CV (PDF)</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Skills page -->
+    <section class="skillsPage" id="skillsPage">
+
+        <div class="page-width">
+
+            <div class="top-text">
+                <h1 class="background-text">Technical Skills</h1>
+                <h1 class="page-heading">Technical <span class="heading-span">Skills</span></h1>
+            </div>
+            <div class="page-summary">
+                <p>Hover over each tile to see information on experience and projects made using the respective
+                    applications
+                </p>
+            </div>
+            <div class="material-icons secondary-colour md-72">tune</div>
+
+            <div class="filter-buttons-container">
+                <button class="filter-button active-filter" onclick="filterSelection('show-all')">All</button>
+                <button class="filter-button" onclick="filterSelection('frontend-languages')">Frontend</button>
+                <button class="filter-button" onclick="filterSelection('backend-languages')">Backend</button>
+                <button class="filter-button" onclick="filterSelection('other-languages')">Other</button>
+            </div>
+
+
+            <div class="container">
+
+                <!-- HTML -->
+                <figure class="language-icon frontend-languages" id="html">
+                    <img src="../resources/SVG_languages/html5-original.svg" alt="HTMLF Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">HTML</span>
+                            <br>
+                            Years of experience: 1.5+
+                            <br>
+                            Projects made: 4
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+
+
+
+                <!-- CSS -->
+                <figure class="language-icon frontend-languages" id="css">
+                    <img src="../resources/SVG_languages/css3-original.svg" alt="CSS Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">CSS</span>
+                            <br>
+                            Years of experience: 1.5+
+                            <br>
+                            Projects made: 3
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- JavaScript -->
+                <figure class="language-icon frontend-languages" id="javascript">
+                    <img src="../resources/SVG_languages/javascript-original.svg" alt="JavaScript Logo"
+                        class="language-icon background-icon frontend-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">JavaScript</span>
+                            <br>
+                            Years of experience: 1+
+                            <br>
+                            Projects made: 2
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- jQuery -->
+                <figure class="language-icon frontend-languages" id="jquery">
+                    <img src="../resources/SVG_languages/jquery-original.svg" alt="jQuey Logo"
+                        class="language-icon background-icon frontend-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">jQuery</span>
+                            <br>
+                            Years of experience: &lt; 1
+                            <br>
+                            Projects made: 1
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <!-- React.js -->
+                <figure class="language-icon frontend-languages" id="react">
+                    <img src="../resources/SVG_languages/react-original.svg" alt="React.js Logo"
+                        class="language-icon background-icon frontend-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">React.js</span>
+                            <br>
+                            Years of experience: &lt; 1<br>
+                            Projects made: 0
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- Java -->
+                <figure class="language-icon backend-languages" id="java">
+                    <img src="../resources/SVG_languages/java-original.svg" alt="Java Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">Java</span>
+                            <br>
+                            Years of experience: 3+
+                            <br>
+                            Projects made: 3
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+
+                <!-- Python -->
+                <figure class="language-icon backend-languages" id="python">
+                    <img src="../resources/SVG_languages/python-original.svg" alt="Python Logo"
+                        class="language-icon background-icon backend-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">Python</span>
+                            <br>
+                            Years of experience: 2+
+                            <br>
+                            Projects made: 2
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- PostgreSQL -->
+                <figure class="language-icon backend-languages" id="postgresql">
+                    <img src="../resources/SVG_languages/postgresql-original.svg" alt="PostgreSQL Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">PostgreSQL</span>
+                            <br>
+                            Years of experience: 1+
+                            <br>
+                            Projects made: 1
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- MySQL -->
+                <figure class="language-icon backend-languages" id="mysql">
+                    <img src="../resources/SVG_languages/mysql-original.svg" alt="MySQL Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">MySQL</span>
+                            <br>
+                            Years of experience: 1
+                            <br>
+                            Projects made: 1
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- GitHub -->
+                <figure class="language-icon background-icon other-languages" id="github">
+                    <img src="../resources/SVG_languages/github-mark-white.svg" alt="GitHub Logo" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">GitHub</span>
+                            <br>
+                            Years of experience: 2+
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- GitLab -->
+                <figure class="language-icon background-icon other-languages" id="gitlab">
+                    <img src="../resources/SVG_languages/gitlab-original.svg" alt="GitLab Logo"
+                        class="language-icon background-icon other-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">GitLab</span>
+                            <br>
+                            Years of experience: 1+
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+                <!-- SVN -->
+                <figure class="language-icon background-icon other-languages" id="svn">
+                    <img src="../resources/SVG_languages/subversion-original.svg" alt="Subversion (SVN) Logo"
+                        class="language-icon background-icon other-languages" />
+                    <figcaption>
+                        <p>
+                            <span class="caption-heading">Subversion (SVN)</span>
+                            <br>
+                            Years of experience: 1+
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+
+    <!-- Portfolio page -->
+    <section class="portfolioPage" id="portfolioPage">
+
+        <div class="page-width">
+
+            <div class="top-text">
+                <h1 class="background-text">My Projects</h1>
+                <h1 class="page-heading">My <span class="heading-span">Projects</span></h1>
+
+            </div>
+            <div class="page-summary">
+                <p>Hover over each tile to see more information</p>
+            </div>
+
+
+
+            <div class="container">
+
+                <!-- Resturant managment system  -->
+                <div class="project-tile">
+                    <!-- Tile text -->
+                    <div class="tile-heading-and-subtext">
+
+                        <!-- Project title -->
+                        <div class="tile-heading">
+                            <h2 class="Resturant-management-system tile-title">Resturant management system webapp</h2>
+                        </div>
+
+                        <!-- Lanuages used -->
+                        <div class="tile-description-languages-used">
+                            <p>HTML / CSS / PHP / PostgreSQL</p>
+                        </div>
+
+                        <!-- Description of each project -->
+                        <div class="tile-explanation">
+                            <p>
+                                Web application for my second year team project
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <img src="../resources/images/Oaxaca-web-application.png" class="tile-image"
+                        alt="Oxaca web application homepage image">
+
+
+
+                    <!-- Link button -->
+                    <div class="tile-button-container">
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://github.com/Anish25100" target="_blank" aria-label="Github repository for the Oaxaca web application">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover btn-github"><i
+                                        class="fa-brands fa-square-github"></i>
+                                    GitHub
+                                </button>
+                            </a>
+                        </div>
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube video which shows a deployment of the Oaxaca web application">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover video-demo"><i
+                                        class="fa-brands fa-youtube"></i> Video
+                                    demo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive sketch tool -->
+                <div class="project-tile">
+                    <!-- Tile text -->
+                    <div class="tile-heading-and-subtext">
+
+                        <!-- Project title -->
+                        <div class="tile-heading">
+                            <h2 class="Resturant-management-system tile-title">Interactive sketch tool</h2>
+                        </div>
+
+                        <!-- Lanuages used -->
+                        <div class="tile-description-languages-used">
+                            <p>HTML / CSS / JavaScript</p>
+                        </div>
+
+                        <!-- Description of each project -->
+                        <div class="tile-explanation">
+                            <p>
+                                An interactive sketch tool which was created for my final year project.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+
+                    <img src="../resources/images/Interactive-sketch-tool.png" class="tile-image"
+                        alt="interactive sketch tool image">
+
+
+
+                    <!-- Link button -->
+                    <div class="tile-button-container">
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://github.com/Anish25100" target="_blank" aria-label="Github repository for the Interactive sketch tool">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover btn-github"><i
+                                        class="fa-brands fa-square-github"></i>
+                                    GitHub
+                                </button>
+                            </a>
+                        </div>
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube video deployment for the Interactive sketch tool">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover video-demo"><i
+                                        class="fa-brands fa-youtube"></i> Video
+                                    demo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Web portfolio tile -->
+                <div class="project-tile">
+                    <!-- Tile text -->
+                    <div class="tile-heading-and-subtext">
+
+                        <!-- Project title -->
+                        <div class="tile-heading">
+                            <h2 class="Resturant-management-system tile-title">Web portfolio</h2>
+                        </div>
+
+                        <!-- Lanuages used -->
+                        <div class="tile-description-languages-used">
+                            <p>HTML / CSS / JavaScript (jQuery)</p>
+                        </div>
+
+                        <!-- Description of each project -->
+                        <div class="tile-explanation">
+                            <p>
+                                This current web portfolio is also something I used in my final year project.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+
+                    <img src="../resources/images/web-portfolio.png" class="tile-image"
+                        alt="web-portfolio home page image">
+
+
+                    <!-- Link button -->
+                    <div class="tile-button-container">
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://github.com/Anish25100" target="_blank" aria-label="Github repository for the web portfolio">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover btn-github"><i
+                                        class="fa-brands fa-square-github"></i>
+                                    GitHub
+                                </button>
+                            </a>
+                        </div>
+                        <div class="individual-button-container button-active-translate">
+                            <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube video deploymentfor the web portfolio">
+                                <button
+                                    class="tile-button button-default-style button-transparent-and-scale-hover video-demo"><i
+                                        class=" fa-brands fa-youtube"></i> Video
+                                    demo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- Contact page -->
+    <section class="contactPage" id="contactPage">
+        <div class="page-width">
+
+            <div class="top-text">
+                <h1 class="background-text">Contact Me</h1>
+                <h1 class="page-heading">Contact <span class="heading-span">Me</span> </h1>
+            </div>
+
+
+            <div class="container">
+
+                <!-- Left side of the page -->
+                <div class="left columns">
+
+                    <div class="form-message justify-text">
+                        <h2 class="contact-sub-headings">Get in touch</h2>
+                        <p>Want to work together? Feel free to contact me by sending me a message using the form below.
+                            I'm always happy to accommodate.
+                        </p>
+                    </div>
+
+                    <form id="contact-form" onsubmit="formValidation(); return false">
+
+                        <div class="form-flex-item-1">
+                            <!-- The aria-label is used to provide a text alternative to an element that has no visible text on the screen. -->
+                            <input class="input-field" type="text" name="Name" placeholder="Name" id="name" required
+                                aria-label="Please input your name in this field.">
+                            <input class="input-field" type="email" name="Email" placeholder="Email" id="email" required
+                                aria-label="Please input your email address in this field.">
+                            <textarea name="message" id="message" cols="50" placeholder="Please enter your message..."
+                                aria-label="Please enter the text you would like to submit." required></textarea>
+                        </div>
+
+                        <div class="form-flex-item-2 button-active-translate">
+                            <input type="submit" value="submit"
+                                class="contact-submit-button button-default-style button-transparent-and-scale-hover"
+                                id="contact-submit-button" aria-label="Submit and send form.">
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- right side of the page -->
+                <div class="right columns">
+
+                    <div class="addition-info justify-text">
+
+                        <h2 class="contact-sub-headings">Personal info</h2>
+                        <p>
+                            If you would like to send a more personalised message you can get in touch
+                            with me through phone, email or any of the channels below.
+                        </p>
+
+                    </div>
+
+                    <div class="contact-options">
+
+                        <table class="contact-table">
+
+                            <tr class="table-row" id="row-1">
+                                <td class="icon-bullet"><i class="fa-solid fa-location-dot"></i></td>
+                                <td>
+                                    <div class="list-item-text">
+                                        <h4 class="list-item-heading">Location</h4>
+                                        <p class="list-item-desc">West London, United Kingdom</p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="table-row" id="row-2">
+                                <td class="icon-bullet"><i class="fa-solid fa-phone"></i></td>
+                                <td>
+                                    <div class="list-item-text">
+                                        <h4 class="list-item-heading">Phone</h4>
+                                        <p class="list-item-desc">(+44) 7904497954</p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="table-row" id="row-3">
+                                <td class="icon-bullet"><i class="fa-solid fa-envelope"></i></td>
+                                <td>
+                                    <div class="list-item-text">
+                                        <h4 class="list-item-heading">Email</h4>
+                                        <p class="list-item-desc">aak2504@gmail.com</p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                    <!-- Add a line break to separate content  -->
+                    <hr>
+                    <div class="social-media">
+                        <ul class="social-flex-container">
+                            <li><a href="https://www.linkedin.com/in/anish25/" target="_blank"
+                                    aria-label="Link to Linkedin page"><i
+                                        class="fa-brands fa-linkedin button-active-translate"></i></a></li>
+                            <li><a href="https://github.com/Anish25100" target="_blank"
+                                    aria-label="Link to Github portfolio"><i
+                                        class="fa-brands fa-github button-active-translate"></i></a></li>
+                            <li><a href="https://www.instagram.com/anish_k25/" target="_blank"
+                                    aria-label="Link to personal Instagram account"><i
+                                        class="fa-brands fa-instagram button-active-translate"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <p class="copyright-section">
+            <!-- HTML Entity for copyright  -->
+            Copyright &#169; 2022 Anish Kanda, All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Back to top button -->
+    <div class="scroll-top" id="scroll-top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+        <p class="back-to-top-text">Back to Top</p>
+    </div>
+
+
+
+    <!-- JavaScripts -->
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>

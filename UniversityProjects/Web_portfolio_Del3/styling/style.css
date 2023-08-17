@@ -1,0 +1,1641 @@
+/* Importing google fonts to use */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;800&family=Roboto:wght@400;500;700;900&display=swap');
+
+/* Remove UA style defaults so there is consistency between browsers*/
+* {
+    margin: 0;
+    padding: 0;
+    /* Change boxing style so sizing is the exact value*/
+    box-sizing: border-box;
+    text-decoration: none;
+    /* Have the text in custom fonts from google, back up font is sans serif */
+    font-family: 'Prompt', 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+html {
+    /* Smooth animation when a user clicks a link that jumps to a fragmented position */
+    scroll-behavior: smooth;
+}
+
+/* ========================================================================================================================================================== */
+/*                                                                        Shared styling                                                                      */
+
+
+
+section {
+    /* When we click on the nav links or buttons to go to another section, the title/top of the page always gets covered by the navbar. 
+    So to overcome this issue, we add a padding to the top and bottom of each section, so that there is some leeway. 
+    
+    We CANNOT use margin here because margin is the space on the outside of the element. So by adding a margin to the section, we would just
+    be saying the section starts  x pixels away from the top. When we click on a link, it will still cover the title of the page.
+    Remember that margin is the WHITESPACE between elements. Padding is the space BETWEEN the content of an element, in this case the section content,
+    and the border of that same element.
+    */
+    padding: 100px 0;
+    min-height: 100vh;
+    color: white;
+}
+
+/* This sets the overall page width for each section in the webpage. */
+.page-width {
+    max-width: 1800px;
+    padding: 0 80px;
+    margin: auto;
+
+}
+
+
+
+/* Page heading and summary */
+
+.top-text {
+    /* Postition in center in both axes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Used for positioning background */
+    position: relative;
+    /* Height of top text */
+    height: 125px;
+    /* add some space between the main content and the heading */
+    margin-bottom: 2%;
+    text-align: center;
+
+    user-select: none;
+}
+
+/* adjust size and weight of heading text */
+.page-heading {
+    user-select: none;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+
+.top-text h1 {
+    position: absolute;
+
+}
+
+.page-summary {
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+
+/* Background shadow */
+h1.background-text {
+    opacity: 0.05;
+    font-size: 80px;
+    height: fit-content;
+    letter-spacing: 1px;
+
+}
+
+
+/* Colour the word 'Me' */
+.page-width .heading-span {
+    /* Put the word 'me' in gold */
+    color: #f8b124;
+    font-weight: 600;
+}
+
+
+/* Section content - MAIN CONTENT */
+.page-width .container {
+    /* This is going to be the easist way to edit when making this page responsive */
+    display: flex;
+    /* Wrap around if the space is too short */
+    flex-wrap: wrap;
+    /* space between elements and around elements*/
+    justify-content: space-evenly;
+}
+
+
+.justify-text {
+    text-align: justify;
+}
+
+/* ========================================================================================================================================================= */
+/*                                                                     Shared buttons                                                                        */
+
+
+button {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.button-default-style {
+    padding: 1em 2em;
+    background-color: #f8b124;
+    border: 2px solid #ffaa00;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+
+.button-transparent-and-scale-hover:hover {
+    background-color: transparent;
+    transform: scale(0.9);
+}
+
+
+
+/* Button doesn't get clicked on when you press around it within the div */
+.aboutPage .page-width .right-side .download-cv-button,
+.form-flex-item-2 {
+    width: fit-content;
+
+}
+
+
+/* For all buttons using onClick effects */
+.button-active-translate:active {
+    transform: translateY(4px);
+}
+
+
+/* Change text colour to white so that it can be seen in contrast to background */
+button:hover,
+#contact-submit-button:hover {
+    color: white;
+
+}
+
+
+/* ========================================================================================================================================================== */
+/*                                                                              Navbar                                                                        */
+
+.navbar {
+    /* Always on the page */
+    position: fixed;
+    /* Prevent mouse scroll from being seen when moving past */
+    z-index: 100;
+    /* Takes up the entire width */
+    width: 100%;
+    /* Make background transparent on the first page, and then change during scroll */
+    background: transparent;
+    /* Padding to make bar equally thicker on top and bottom */
+    /* During transition to other pages, this will become smaller */
+    padding: 30px 0;
+    /* Transition is added here as the property of the navbar is the one that is changing. */
+    transition: 0.5s ease;
+}
+
+/* We want the navbar to change colour and size when transitioned */
+.navbar.show-nav {
+    background: rgb(32, 31, 31);
+    padding: 5px 0;
+}
+
+/*  Logo anchor tags */
+.navbar .logo a {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.navbar .nav-options li {
+    /* Get rid of all bullet points */
+    list-style: none;
+    /* Make all list items on the same line, each being their own block */
+    display: inline-block;
+}
+
+.navbar .nav-options li a {
+    /* Colour of list items */
+    color: white;
+    /* size and weight of font */
+    font-size: 20px;
+    font-weight: 500;
+    /* make space between elements. The reason for this is because the last item won't move so left will just make the other items move */
+    margin-left: 25px;
+    /* Want the colour property of these tabs to smooth in nicely */
+    transition: color 0.5s ease;
+}
+
+.navbar .nav-options li a:hover,
+.navbar .logo a {
+    color: #f8b124;
+
+}
+
+.navbar .hamburger-menu {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    /* Do not want the hamburger menu to be display until the screen is small */
+    display: none;
+}
+
+/* 
+Make a flex container, so we can move/float the items to the left and right correspondingly.
+Note that the Navbar is the flex container, which is the size of the page width 
+*/
+.navbar .page-width {
+    /* Make a flex container, so that we can easily move items and make it responsive in the future */
+    display: flex;
+    /* Vertical alignment flex elements */
+    align-items: center;
+    /* Horizontal alignment - adds and eqaul amount of space between each flex-item */
+    justify-content: space-between;
+}
+
+
+/* ==================================================================================================== */
+/* This is a underline effect which is used for accessibility, as some people won't be able to
+pick up on the colour of the links changing, therefore this visual cue is used to help them. 
+This was take from the following site:
+
+30 seconds of code (2021). 
+Hover underline animation - 30 seconds of code. 
+[online] www.30secondsofcode.org. 
+Available at: https://www.30secondsofcode.org/css/s/hover-underline-animation 
+[Accessed 17 Jan. 2023].
+License: https://creativecommons.org/licenses/by/4.0/legalcode
+*/
+.hover-underline-animation {
+    position: relative;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f8b124;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* ========================================================================================================================================================== */
+/*                                                                          Landing page                                                                      */
+
+
+
+.landing-page {
+    height: 100vh;
+    /* Used to put the text in the centre of the sceen and so that it wraps around*/
+    display: flex;
+    /* Colour of text */
+    color: white;
+    min-height: 500px;
+}
+
+.background-video {
+    /* Want the remove video from the flow of the document to start from the top left of the page */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* Take up the entire screen */
+    width: 100%;
+    height: 100%;
+    /* Cover the screen so there is no white space */
+    object-fit: cover;
+    /* Don't want the video to come over content */
+    z-index: -1;
+
+}
+
+.landing-page .text-content-center {
+    display: flex;
+    /* Main axis has changed. Main axis is now the cross and vice versa */
+    flex-direction: column;
+    /* Align texts along the cross axis*/
+    text-align: center;
+    /* User cannot press buttons */
+    user-select: none;
+}
+
+.landing-page .text-margin-landing {
+    margin: 5px 0;
+
+}
+
+#first-line {
+    font-size: 25px;
+}
+
+#second-line {
+    font-size: 50px;
+    margin-bottom: 50px;
+
+}
+
+#second-line span {
+    color: #f8b124;
+
+}
+
+
+/*  Footer of the landing page  */
+
+/* 
+The following code was used and adapted from the following source:
+Vijayan, D. (2017). Pure CSS Animated Mouse Scroll Icon. 
+[online] Codepen.io. 
+Available at: https://codepen.io/2xsamurai/pen/WwmjKQ [Accessed 13 Jan. 2023].
+
+Copyright (c) 2023 by Deepak K Vijayan (https://codepen.io/2xsamurai/pen/WwmjKQ)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+.mouse-container {
+    position: absolute;
+    /* bottom: 25px; */
+
+    /* Horizontally centres the mouse container with the text to the parent div*/
+    /* Still need to understand why margin 0 auto, left and right:0 is needed */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    /* 
+    If you don't specifiy the width, then you can't press the speaker button, 
+    because the entire width would be taken up as the mouse container. So 
+    by making the width as big as we need, whilst the rest being the margin, we can
+    ensure nothing else coming withing this button. 
+    */
+    width: fit-content;
+
+    /* Vertically centre the text with the mouse */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.scroll-downs {
+    width: 34px;
+    height: 55px;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid #f8b124;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #f8b124;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+/* ========================================================================================================================================================== */
+
+.music-button {
+    position: absolute;
+    margin: 25px 0px;
+    padding: 5px;
+}
+
+#speaker-logo {
+    font-size: 40px;
+    color: #f8b124;
+
+}
+
+.music-button i {
+    cursor: pointer;
+}
+
+.bottom-of-landing-container .page-width {
+    height: 100px;
+}
+
+.scroll-text {
+    margin-bottom: 5px;
+}
+
+.bottom-of-landing-container {
+    position: absolute;
+    bottom: 25px;
+    /* 
+    Over here there is no need to specifiy margin, because we are purposely taking up the entire page width. 
+    Each element will be absoloutely set within this container.
+    */
+    left: 0;
+    right: 0;
+}
+
+.flashing {
+    animation: flash 2s infinite;
+
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#speaker-logo:hover {
+    text-shadow: 0px 10px 5px gold;
+    transform: translateY(-0.25em);
+}
+
+
+#speaker-logo:active {
+    text-shadow: 0px 0px 0px gold;
+    transform: translateY(1px);
+}
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                          About me section                                                                  */
+
+.aboutPage {
+    background-color: #353232;
+}
+
+.aboutPage .left-side {
+    width: 350px;
+    height: 450px;
+    /* Border styling */
+    border-radius: 5px;
+    border-top: solid 5px #f8b124;
+    border-left: solid 5px #f8b124;
+    border-right: solid 5px black;
+    border-bottom: solid 5px black;
+    box-shadow: 5px 7px 10px black;
+}
+
+
+/* Section content - MAIN IMAGE LEFT SIDE */
+.aboutPage img {
+    /* width and height to always take up entire container */
+    width: 100%;
+    height: 100%;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+}
+
+
+
+
+/* Section content - RIGHT SIDE DIV */
+.aboutPage .right-side {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+/* Right hand side font adjustment - Heading */
+.aboutPage .h2-div {
+    font-size: 30px;
+}
+
+
+.aboutPage .h2-div-span {
+    color: #f8b124;
+    font-weight: 600;
+}
+
+
+
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                     Skills page                                                                         */
+
+
+.skillsPage {
+    background-color: #444040;
+    color: white;
+}
+
+
+/* Change container styling from original */
+.skillsPage .container {
+    /* Make container smaller */
+    width: 80%;
+    /* Make items wrap around on small screens */
+    display: flex;
+    flex-wrap: wrap;
+    /* Center div */
+    margin: 0 auto;
+    /* cannot highlight the image */
+    user-select: none;
+
+}
+
+/* Styling language icons */
+
+.language-icon img {
+    /* size of icons */
+    width: 100%;
+    height: 100%;
+    /* Space between background and border */
+    padding: 20px;
+
+}
+
+
+/* Logo and caption container */
+figure {
+    background-color: #353232;
+    border: solid 2px black;
+    box-shadow: 10px 10px 10px #000;
+    /* Space between icons */
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    width: fit-content;
+    justify-content: center;
+    /* For transition */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Buttons for filtering */
+
+.filter-buttons-container {
+    width: 50%;
+    margin: 0 auto 4% auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5%;
+}
+
+.filter-button {
+    width: 125px;
+    border: 2px solid #f8b124;
+    background: #f8b124;
+    /* centre text */
+    text-align: center;
+    color: white;
+    font-size: 120%;
+    /* Used to add underline for active elements */
+    position: relative;
+    border-radius: 5px;
+    color: black;
+}
+
+
+.filter-button.active-filter {
+    border: 2px solid #00f75f;
+    color: black;
+    background-color: #00f75f;
+}
+
+
+.filter-button:hover {
+    background-color: transparent;
+    transform: scale(0.9);
+    color: white;
+}
+
+.filter-button:active {
+    transform: translateY(4px);
+    transition: none;
+}
+
+
+/* Filter mechanism */
+
+
+.language-icon {
+    display: none;
+}
+
+
+.showLanguage {
+    display: block;
+}
+
+.material-icons.secondary-colour {
+    color: #f8b124;
+}
+
+.material-icons.md-72 {
+    font-size: 72px;
+}
+
+
+/* Styling filter options */
+.skillsPage .material-icons {
+    display: none;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 7%;
+    text-shadow: 0px 5px 2px #000;
+}
+
+
+/* Caption styling */
+figcaption {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    transform: translateY(150%);
+    min-width: 100%;
+    height: 40%;
+    background-color: rgb(29, 28, 28);
+    transition: transform 0.5s ease;
+}
+
+.caption-heading {
+    color: #f8b124;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
+/* caption to show experience and projects */
+figcaption p {
+    text-align: center;
+    font-weight: 100;
+}
+
+/* Move caption up */
+figure:hover figcaption {
+    transform: translateY(0);
+}
+
+
+/* Blur and darken logo on hover - Only want the image to beblured, not the entire tile*/
+figure:hover img {
+    filter: blur(5px);
+    opacity: 0.7;
+}
+
+
+
+figure:hover {
+    transform: translateY(-5px);
+    /* 
+    There was a bug where the image translated positions after the border changed colour on hover. 
+    This was because the colour changes take place immediately, whilst transform changes take slightly longer. 
+    To overcomethis, I set the transition on all figure elements to have the same time. Now, the image rises and changes colour simultaneously. 
+    */
+    transition: all 0.3s ease;
+}
+
+
+/* Individual hover effects for each language */
+
+#html:hover {
+    border: solid 2px #ff0000;
+    box-shadow: 7px 7px 10px #f14216;
+}
+
+
+#css:hover {
+    border: solid 2px #00b7ff;
+    box-shadow: 7px 7px 10px #2297eb;
+}
+
+
+#javascript:hover {
+    border: solid 2px #ffdd00;
+    box-shadow: 7px 7px 10px #f0db4f;
+}
+
+
+#jquery:hover {
+    border: solid 2px #035ea3;
+    box-shadow: 7px 7px 10px #0066ff;
+}
+
+
+#react:hover {
+    border: solid 2px #64dcfc;
+    box-shadow: 7px 7px 10px #00c8ff;
+}
+
+#java:hover {
+    border: solid 2px #f700ff;
+    box-shadow: 7px 7px 10px #9306d4;
+}
+
+
+#python:hover {
+    border: solid 2px #ff7b00;
+    box-shadow: 7px 7px 10px #9c6004;
+}
+
+
+#postgresql:hover {
+    border: solid 2px #3d94eb;
+    box-shadow: 7px 7px 10px #0080ff;
+}
+
+#mysql:hover {
+    border: solid 2px #299bcc;
+    box-shadow: 7px 7px 10px #00618a;
+}
+
+#github:hover {
+    border: solid 2px #ffffff;
+    box-shadow: 7px 7px 10px #c2c2c2;
+}
+
+
+#gitlab:hover {
+    border: solid 2px #ff5500;
+    box-shadow: 7px 7px 10px #fc6d26;
+}
+
+#svn:hover {
+    border: solid 2px #4b7fd3;
+    box-shadow: 7px 7px 10px #6499ee;
+}
+
+/* ========================================================================================================================================================== */
+/*                                                                     Portfolio page                                                                         */
+
+
+.portfolioPage {
+    background-color: rgb(34, 33, 33);
+    color: white;
+}
+
+.portfolioPage .container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Tile styling */
+
+.project-tile {
+    width: 25%;
+    /* Set texts and images as a column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* centre text */
+    text-align: center;
+    /* Space between each tile */
+    margin: 1.5%;
+    /* Shadow */
+    box-shadow: 10px 10px 10px #000;
+    border: solid 2px black;
+    /* Used for animations */
+    position: relative;
+    overflow: hidden;
+    /* prevent users from highlighting text */
+    user-select: none;
+}
+
+
+/* Image takes up entire div */
+.project-tile img {
+    width: 100%;
+}
+
+
+/* Text styling */
+.tile-description-languages-used p {
+    color: #f8b124;
+    font-size: large;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* Button styling */
+
+
+/* Take up the width of the project tile container */
+.tile-button-container {
+    /* Tile container takes up whole project div */
+    width: 100%;
+    /* Adding space between buttons and on the sides */
+    display: flex;
+    flex-wrap: nowrap;
+    /* When you press/hover over a tile, you should only press the buttons and not the surrounding area */
+    justify-content: space-around;
+    /* We need to set the parent element to relative, otherwise it would move relative to the HTML */
+    position: absolute;
+    /* Set the normal position on the tile */
+    top: 75%;
+    /* Translate away from the page */
+    transform: translateY(250%);
+    /* Transition in smootly on hover */
+    transition: all 0.5s ease;
+
+}
+
+/* Make the buttons bigger within the container*/
+.individual-button-container {
+    width: 45%;
+}
+
+
+.tile-button {
+    /* Button styling has needs to be smaller */
+    padding: 0.5rem 0.7rem;
+    /* Take up some space of the container */
+    width: 100%;
+    /* font sizing */
+    letter-spacing: 1.5px;
+    /* Text to be centred */
+    text-align: center;
+
+
+}
+
+/* Increase Icon size */
+.tile-button i {
+    font-size: 20px;
+}
+
+/* Make Youtube icon red */
+.fa-youtube {
+    color: red;
+}
+
+
+/* Tranistion hover effects and text styling during hover*/
+
+/* When we hover over the tile, we want to blur the image, and the image alone */
+.project-tile:hover img {
+    filter: blur(5px);
+    /* Allows the text to be seen easily */
+    opacity: 0.4;
+}
+
+
+.tile-heading-and-subtext {
+    /* We need to set the parent element to relative, otherwise it would move relative to the HTML */
+    position: absolute;
+    /* The texts normal position on the tile */
+    top: 0px;
+    /* When we are not hovering over the item we want the text to be off the item */
+    transform: translateY(-125%);
+    /* Smooth the transition */
+    transition: all 0.5s ease;
+    /* Used to add space between text */
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-around;
+}
+
+
+
+/* Whenever we hover over the project tile, we want the tile heading to change position */
+.project-tile:hover .tile-heading-and-subtext {
+    /* prevent users cursor from highlight the text */
+    user-select: none;
+    /* On hover, we want to move the text down onto the tile */
+    transform: translateY(0);
+    /* Make the text above the image */
+    z-index: 1;
+}
+
+
+
+/* When we hover over the tile, we want the button container to slide in */
+.project-tile:hover .tile-button-container {
+    transform: translateY(0);
+}
+
+/* Add a shadow to show that the item is active */
+
+.project-tile:hover {
+    box-shadow: 10px 10px 10px #f8b124;
+}
+
+
+
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                       Contact page                                                                         */
+
+
+.contactPage {
+    background-color: #3a3939;
+    /* Change page front colours, e.g. font colour, to white as the background is dark */
+    color: white;
+}
+
+/* Shared code between both divs */
+
+.contact-sub-headings {
+    color: #f8b124;
+}
+
+
+/* LEFT DIV */
+
+
+/* Make the whole form and the heading flex items */
+.contactPage .left {
+    /* Gap between the right and left side */
+    width: 40%;
+    /* Make container flex */
+    display: flex;
+    flex-direction: column;
+    /* Distance between heading and form (flex items) */
+    row-gap: 50px;
+}
+
+
+/* Form styling */
+
+
+/* Make the form flex */
+.contactPage form {
+    /* Arange them in a column */
+    display: flex;
+    flex-direction: column;
+    /* Make the form take up the remaining height of the div */
+    flex: 1;
+    /* Form takes up entire div width */
+    width: 100%;
+}
+
+
+
+.contactPage .form-flex-item-1 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    margin-bottom: 2%;
+
+}
+
+.contactPage textarea {
+    resize: none;
+    /* Have a fixed size at all time */
+    max-height: 150px;
+    min-height: 150px;
+    border-radius: 5px;
+    /* Make the text appear a little bit more into the box, as opposed to it starting on the edge */
+    padding: 15px;
+    border: none;
+    background-color: #2a2a2a;
+    letter-spacing: 1px;
+    color: white;
+
+}
+
+.contactPage form .input-field {
+    /* Make the input fields bigger and to make text start away from border*/
+    padding: 15px;
+    /* Want the input fields to always have 100% of the width - different to the form taking up 100% */
+    width: 100%;
+    /* Round edges */
+    border-radius: 5px;
+    /* No border */
+    border: none;
+    background-color: #2a2a2a;
+    letter-spacing: 1px;
+    color: white;
+}
+
+#contact-submit-button {
+    padding: 1em 4em;
+
+}
+
+
+/* Make placeholder text within the form darker */
+::placeholder {
+    color: white;
+    user-select: none;
+}
+
+
+/* Highlight boxes that are currently being written in */
+.input-field:focus,
+textarea:focus {
+    outline: #f8b124 solid 3px;
+
+}
+
+.input-field:focus:invalid,
+textarea:focus:invalid {
+    outline: 3px solid red;
+}
+
+
+
+
+/* RIGHT DIV */
+
+
+/* Make the right hand side container a flex container */
+.contactPage .right {
+    /* Set the size of the container */
+    width: 40%;
+    /* Make container flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Table styling */
+
+
+/* Extra communcation channels */
+
+.contactPage .contact-table {
+    /* Vertical spacing between contact info */
+    border-spacing: 0 50px;
+}
+
+.contactPage .icon-bullet {
+    /* Space between icons and the corresponding information */
+    padding-right: 20px;
+    /* Icons size */
+    font-size: 30px;
+    /* Colour of icons */
+    color: #f8b124;
+}
+
+.contactPage .list-item-heading {
+    /* Size of the headings */
+    font-size: 16px;
+    /* Colour of heading */
+    color: #f8b124;
+}
+
+.contactPage .list-item-desc {
+    /* make items be seen/read more easily */
+    letter-spacing: 0.05rem;
+}
+
+
+/* Social Media channels */
+
+
+/* Make the social media icons all on one line and increase size*/
+
+.contactPage .right .social-media {
+    margin-top: 15px;
+}
+
+
+.contactPage .social-flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    list-style: none;
+}
+
+
+.contactPage .right .social-media ul li a {
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Hover effects */
+
+.fa-linkedin:hover {
+    color: #0072b1;
+}
+
+.fa-github:hover {
+    color: #000;
+}
+
+.fa-instagram:hover {
+    color: rgb(235, 59, 156);
+}
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                                 footer                                                                     */
+
+footer {
+    background-color: #201f1f;
+    color: white;
+    width: 100%;
+    /* With padding, I don't need to use display flex to centre items vertically */
+    padding: 1%;
+    /* place items in centre */
+    text-align: center;
+    letter-spacing: 1px;
+    /* prevent users from highligting text */
+    user-select: none;
+}
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                                  Scroll Up button                                                          */
+
+
+.scroll-top {
+    position: fixed;
+    padding: 0px 3px;
+    background-color: #f8b124;
+    right: 15px;
+    /* Far bottom right corner to fit in with conventions and so that its out of the way of main content on smaller screens */
+    bottom: 1%;
+    border-radius: 5px;
+    text-align: center;
+    /* Prevent item being seen on navbar on smaller screens */
+    z-index: 0;
+    cursor: pointer;
+    transform: translateY(100px);
+    transition: transform 0.5s ease;
+    color: black;
+    border: 2px solid #f8b124;
+    user-select: none;
+}
+
+.scroll-top.show {
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: transparent;
+    transform: scale(0.9);
+    color: white;
+}
+
+.scroll-top:active {
+    transform: translateY(4px);
+    transition: none;
+}
+
+
+
+
+/* ========================================================================================================================================================== */
+/*                                                                      Responsive display                                                                    */
+
+
+/* Anything less that 1600px */
+@media (max-width: 1625px) {
+    .project-tile {
+        width: 30%;
+    }
+}
+
+
+@media (max-width: 1440px) {
+    .project-tile {
+        font-size: 75%;
+    }
+
+
+    .tile-button {
+        font-size: 90%;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .tile-button i {
+        font-size: 95%;
+    }
+
+    /* Make more room for buttons, hence reducing the paragraph */
+    .tile-description-languages-used p {
+        font-size: 12px;
+    }
+
+
+}
+
+@media (max-width: 1100px) {
+    .project-tile {
+        font-size: 60%;
+    }
+
+    .tile-button {
+        font-size: 80%;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+
+    /* reduce image size on about page */
+    .aboutPage .left-side {
+        width: 250px;
+        height: 350px;
+    }
+
+
+    .aboutPage .right-side {
+        width: 60%;
+    }
+
+
+
+
+    .project-tile {
+        width: 40%;
+        font-size: 65%;
+    }
+
+    /* Make tile font bigger */
+    .tile-button {
+        font-size: 90%;
+    }
+
+
+    /* reduce size of skill tiles and images and font size of the filter options */
+
+
+    .skillsPage .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .filter-buttons-container {
+        font-size: 12px;
+        width: 80%;
+    }
+
+
+}
+
+
+
+
+
+/* Make the about page contexts wrap around */
+@media (max-width: 890px) {
+
+
+    .project-tile {
+
+        font-size: 60%;
+    }
+
+
+    .aboutPage .right-side {
+        margin-top: 5%;
+        width: fit-content;
+        gap: 15px;
+    }
+
+
+    figure {
+        width: 150px;
+    }
+
+    .skillsPage .container {
+        font-size: 75%;
+    }
+
+
+
+
+}
+
+
+/* Main responsive for all pages */
+@media (max-width: 768px) {
+
+    /* ======================================================================   Navbar   ==================================================================== */
+    .navbar .nav-options {
+        /* We want the nav-options relative to the window/screen and stay there until the user closes the nav-options */
+        /* This is currently removed from the flow of the document, but without specfiying offset properties, 
+        it looks like it hasn't been removed. But it has, so don't worry. */
+        position: fixed;
+        /* We want the navbar to take up the whole screen when on a smaller screen device */
+        height: 100vh;
+        width: 100%;
+        background: rgb(32, 31, 31);
+        top: 0;
+        left: 100%;
+        /* Displaying items in the center of the menu screen*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: all 0.5s ease;
+
+    }
+
+    .navbar .nav-options.shown {
+        /* 
+        Although removed from the flow of the document, it stays where it initally was - within its container. 
+        We need to move this to the positioning we like, which is starting at the top left of the page. 
+        */
+        left: 0;
+
+    }
+
+    .navbar .nav-options li a {
+        font-size: 30px;
+        /* There is an offset, which needs to be adjusted */
+        margin: 25px 0px;
+    }
+
+    /* Adjust page width for smaller devices */
+    .page-width {
+        padding: 0 50px;
+    }
+
+    .navbar .hamburger-menu {
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar .hamburger-menu:active,
+    .navbar .nav-options li a:active:hover {
+        color: #f8b124;
+    }
+
+    /* Change colour of cross to red */
+    .hamburger-menu i.active {
+        color: red;
+        font-size: 35px;
+    }
+
+    /* ========================================================================    About me     ================================================================= */
+
+    .aboutPage .page-width .container .left-side {
+        margin-bottom: 20px;
+    }
+
+
+    .aboutPage .page-width .container .left-side {
+        width: 250px;
+        height: 250px;
+
+    }
+
+
+    .aboutPage .page-width .container .right-side h2 {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+
+
+
+    /* =======================================================================    shared buttons     ================================================================ */
+
+    .aboutPage .page-width .container .right-side .download-cv-button,
+    .aboutPage .page-width .container .right-side .download-cv-button button,
+    .contactPage .page-width .container .left .form-flex-item-2,
+    .contactPage .page-width .container .left .contact-submit-button {
+        width: 100%;
+
+    }
+
+ 
+    /* ===========================================================================    contact page     ================================================================= */
+    
+    /* Reduce padding */
+    .contactPage {
+        padding-bottom: 25px;
+    }
+
+    .contactPage .page-width .container {
+        /* Gap between left and right side */
+        row-gap: 50px;
+
+    }
+
+
+    .contactPage .columns {
+        /* Because the container is flex - by setting the columns to width: 100%, the items will wrap around */
+        width: 100%;
+
+    }
+
+    .contactPage .input-field {
+        margin: 5px 0;
+
+    }
+
+    .contactPage textarea {
+        margin-top: 5px;
+    }
+
+
+    /* ===========================================================================    portfolio page     =============================================================== */
+
+    .project-tile {
+        width: 100%;
+        font-size: 90%;
+        margin-top: 5%;
+    }
+
+    /* Make the languages used slightly bigger */
+    .tile-description-languages-used p {
+        font-size: 100%;
+    }
+
+
+
+    .filter-buttons-container {
+        font-size: 12px;
+        width: 90%;
+
+    }
+
+    /* ===========================================================================    Miscellaneous     =============================================================== */
+
+    h1.background-text {
+        font-size: 60px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    h1.page-heading {
+        width: 80%;
+    }
+
+    .top-text {
+        margin-bottom: 12%;
+    }
+
+}
+
+
+
+
+
+@media (max-width: 500px) {
+
+    h1.background-text {
+        font-size: 55px;
+    }
+
+    .portfolioPage .page-heading {
+        width: 100%;
+    }
+
+}
+
+
+
+@media (max-width: 450px) {
+    .page-width {
+        padding: 0 20px;
+    }
+
+
+    .skillsPage .material-icons {
+        display: block;
+    }
+
+
+
+
+
+    .filter-buttons-container {
+        display: none;
+    }
+
+
+    .active-filter-drop-down {
+        height: 70vh;
+        width: 90%;
+        background: rgb(32, 31, 31);
+        /* Displaying items in the center of the menu screen*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        /* Make it hover hove items */
+        position: absolute;
+        z-index: 50;
+        left: 0;
+        right: 0;
+
+    }
+
+    .filter-button {
+        width: 75%;
+        padding: 1em 2em;
+    }
+
+
+}
+
+
+
+/* Make pages responsive for small phones */
+@media (max-width: 400px) {
+    .page-width {
+        padding: 0 15px;
+    }
+}
+
+/* Make pages responsive for small phones */
+@media (max-width: 375px) {
+    .page-width {
+        padding: 0 10px;
+    }
+
+
+    .project-tile {
+        font-size: 70%;
+        margin-top: 5%;
+    }
+
+
+    .top-text {
+        margin-bottom: 15%;
+
+    }
+
+    h1.page-heading {
+        width: 100%;
+    }
+
+
+
+    h1.background-text {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 345px) {
+
+    .portfolioPage .top-text h1.background-text,
+    .contactPage .top-text h1.background-text {
+        font-size: 52px;
+    }
+
+}
+
+@media (max-width: 328px) {
+
+    .portfolioPage .top-text h1.page-heading,
+    .portfolioPage .top-text h1.background-text,
+    .contactPage .top-text h1.page-heading,
+    .contactPage .top-text h1.background-text {
+        width: 90%;
+    }
+
+    .portfolioPage .top-text h1.background-text,
+    .contactPage .top-text h1.background-text {
+        font-size: 55px;
+    }
+}

@@ -1,12 +1,12 @@
 # Web portfolio User Manual
 ## <u>**Loading the file**</u>
 ### Main deliverable
-• Navigate into the ' Web_portfolio_Del3' directory
-• Navigate into the ‘index’ directory.
-• Locate and open the file named ‘index.html.’ This will then load up the web portfolio.
+* Navigate into the ' Web_portfolio_Del3' directory
+* Navigate into the ‘index’ directory.
+* Locate and open the file named ‘index.html.’ This will then load up the web portfolio.
 
 ## <u> Operating the system</u>
-Just like a normal website you can use the all the systems features in the exact same way.
+Just like a normal website, you can use all the system's features in the exact same way.
 Similar operations exits for any variants which may be chosen to run.
 
 #### *Navigation*

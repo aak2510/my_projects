@@ -145,9 +145,13 @@ $(".skillsPage .material-icons").click(function () {
 form = document.getElementById("contact-form");
 
 function formValidation(e) {
-    alert("Thank you. Please keep an eye out on your email for a response.");
+    alert("Thank you for filling out this form. Please not this is form is just for aesthetics and serves no purpose of this moment.");
     // Clear the form after submission
     form.reset();
 
 
 }
+
+$('.form_notification').click(function () {
+    $('.form_notification').removeClass('shown');
+});

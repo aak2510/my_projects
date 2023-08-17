@@ -1,4 +1,4 @@
-# Interface – Web portfolio
+# Web portfolio User Manual
 ## <u>**Loading the file**</u>
 ### Main deliverable
 • Navigate into the ' Web_portfolio_Del3' directory

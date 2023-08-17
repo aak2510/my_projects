@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External CSS Style sheet-->
+    <link rel="stylesheet" type="text/css" href="../styling/style.css" />
+    <!-- Style sheet for save logo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Sketch Tool | Deliverable 2</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tools">
+
+            <div class="tools_buttons">
+                <button onclick="undo_button()" type="button" class="button">Undo</button>
+                <button onclick="redo_button()" type="button" class="button">Redo</button>
+                <button onclick="clear_all()" type="button" class="button">Clear All</button>
+            </div>
+
+            <div class="fixed_colour_pallete">
+                <!-- The onClick function passes calls the new_colour function in myScript.js and passes through the colour -->
+                <div onClick="new_colour('black')" class="fixed_colour" style="background: black;"></div>
+                <div onClick="new_colour('red')" class="fixed_colour" style="background: red;"></div>
+                <div onClick="new_colour('orange')" class="fixed_colour" style="background: orange;"></div>
+                <div onClick="new_colour('yellow')" class="fixed_colour" style="background: yellow;"></div>
+                <div onClick="new_colour('green')" class="fixed_colour" style="background: green;"></div>
+                <div onClick="new_colour('blue')" class="fixed_colour" style="background: blue;"></div>
+                <div onClick="new_colour('indigo')" class="fixed_colour" style="background: indigo;"></div>
+                <div onClick="new_colour('violet')" class="fixed_colour" style="background: violet;"></div>
+            </div>
+
+            <!-- onInput takes the values set by the hex colour and the pen size slides and sets the corresponding values of pen colour and width in myScript.js -->
+            <div class="pen_picker_and_eraser">
+                <input oninput="pen_colour=this.value" type="color" name="hex_colour" id="hex_colour"
+                    value="#000000">
+                <button onclick="eraser()" type="button" id="eraser_button">Eraser</button>
+            </div>
+
+            <div>
+                <input oninput="pen_size=this.value" type="range" min="10" max="50" step="5" class="pen_size"
+                    id="pen_size">
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+        <div class="save_button">
+            <button id="save_image_button">Save Image<i class="fa fa-save"></i></button>
+        </div>
+
+    </div>
+    <!-- Eternal JavaScript Document(s) -->
+    <script src="../scripts/myScript.js"></script>
+</body>
+
+</html>
